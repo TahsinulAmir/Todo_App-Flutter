@@ -19,6 +19,13 @@ class _HomepageState extends State<Homepage> {
       elevation: 0,
       backgroundColor: Colors.transparent,
     );
+
+    // Layout Responseve
+    double heightBody = MediaQuery.of(context).size.height -
+        myAppBar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
+    double widthBody = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: myAppBar,
       body: Center(
