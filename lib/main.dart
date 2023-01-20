@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/screen/add_todo.dart';
 import 'package:todo_app/screen/homepage.dart';
 
 void main(List<String> args) {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         'homepage': (context) => Homepage(),
+        'add_todo': (context) => AddTodo(),
       },
       initialRoute: 'homepage',
     );

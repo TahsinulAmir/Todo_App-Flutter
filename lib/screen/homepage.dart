@@ -42,6 +42,12 @@ class _HomepageState extends State<Homepage> {
     }
 
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, 'add_todo');
+          },
+          child: Icon(Icons.add),
+        ),
         appBar: myAppBar,
         body: SingleChildScrollView(
           child: Column(
