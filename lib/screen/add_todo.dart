@@ -22,8 +22,43 @@ class AddTodo extends StatelessWidget {
     double widthBody = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: myAppBar,
-      body: Center(
-        child: Text("Add Todo"),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        width: widthBody,
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey[350]),
+              child: TextField(
+                maxLength: 20,
+                style: TextStyle(fontSize: 20),
+                decoration: InputDecoration(
+                  hintText: "Title",
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: heightBody * 0.05,
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey[350]),
+              child: TextField(
+                maxLines: 10,
+                decoration: InputDecoration(
+                  hintText: "Description",
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
