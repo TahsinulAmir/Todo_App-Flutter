@@ -55,7 +55,11 @@ class _HomepageState extends State<Homepage> {
                       final todo = todos[index];
                       return CheckboxListTile(
                         secondary: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              todos.removeAt(index);
+                            });
+                          },
                           icon: Icon(
                             Icons.delete,
                             color: Colors.red,
