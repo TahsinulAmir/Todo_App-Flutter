@@ -26,10 +26,13 @@ class AddTodo extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          dataTodo.add(Todo(
-              id: DateTime.now().toString(),
-              title: controllerTitle.text,
-              desc: controllerDesc.text));
+          if (controllerTitle.text.length != 0 ||
+              controllerDesc.text.length != 0) {
+            dataTodo.add(Todo(
+                id: DateTime.now().toString(),
+                title: controllerTitle.text,
+                desc: controllerDesc.text));
+          }
           Navigator.pop(context);
         },
         child: Icon(Icons.add_task),
