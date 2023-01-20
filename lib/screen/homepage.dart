@@ -29,46 +29,48 @@ class _HomepageState extends State<Homepage> {
 
     return Scaffold(
         appBar: myAppBar,
-        body: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(20),
-              width: widthBody,
-              height: heightBody * 0.15,
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.search),
-                  hintText: "Search your task...",
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(20),
+                width: widthBody,
+                height: heightBody * 0.15,
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.search),
+                    hintText: "Search your task...",
+                  ),
                 ),
               ),
-            ),
-            Container(
-                height: heightBody * 0.85,
-                width: widthBody,
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return CheckboxListTile(
-                      secondary: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.delete,
-                          color: Colors.red,
+              Container(
+                  height: heightBody * 0.85,
+                  width: widthBody,
+                  child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return CheckboxListTile(
+                        secondary: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.delete,
+                            color: Colors.red,
+                          ),
                         ),
-                      ),
-                      controlAffinity: ListTileControlAffinity.leading,
-                      title: Text(
-                        "Title",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      subtitle: Text("Subtitle"),
-                      value: varSementara,
-                      onChanged: (value) {},
-                    );
-                  },
-                )),
-          ],
+                        controlAffinity: ListTileControlAffinity.leading,
+                        title: Text(
+                          "Title",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        subtitle: Text("Subtitle"),
+                        value: varSementara,
+                        onChanged: (value) {},
+                      );
+                    },
+                  )),
+            ],
+          ),
         ));
   }
 }
