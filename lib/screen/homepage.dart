@@ -27,10 +27,22 @@ class _HomepageState extends State<Homepage> {
     double widthBody = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: myAppBar,
-      body: Center(
-        child: Text("Todo App"),
-      ),
-    );
+        appBar: myAppBar,
+        body: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(20),
+              width: widthBody,
+              height: heightBody * 0.2,
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.search),
+                  hintText: "Search your task...",
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
