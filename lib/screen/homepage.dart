@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/models/todo.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -8,7 +9,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  bool varSementara = true;
+  List<Todo> todos = dataTodo;
+
   @override
   Widget build(BuildContext context) {
     AppBar myAppBar = AppBar(
@@ -48,8 +50,9 @@ class _HomepageState extends State<Homepage> {
                   height: heightBody * 0.85,
                   width: widthBody,
                   child: ListView.builder(
-                    itemCount: 10,
+                    itemCount: todos.length,
                     itemBuilder: (context, index) {
+                      final todo = todos[index];
                       return CheckboxListTile(
                         secondary: IconButton(
                           onPressed: () {},
@@ -60,14 +63,14 @@ class _HomepageState extends State<Homepage> {
                         ),
                         controlAffinity: ListTileControlAffinity.leading,
                         title: Text(
-                          "Title",
+                          todo.title,
                           style: TextStyle(fontSize: 18),
                         ),
-                        subtitle: Text("Subtitle"),
-                        value: varSementara,
+                        subtitle: Text(todo.desc),
+                        value: todo.isCompleted,
                         onChanged: (value) {
                           setState(() {
-                            varSementara = value!;
+                            todo.isCompleted = value!;
                           });
                         },
                       );
