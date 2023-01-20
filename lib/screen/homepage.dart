@@ -64,7 +64,11 @@ class _HomepageState extends State<Homepage> {
                         controlAffinity: ListTileControlAffinity.leading,
                         title: Text(
                           todo.title,
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                              fontSize: 18,
+                              decoration: todo.isCompleted
+                                  ? TextDecoration.lineThrough
+                                  : TextDecoration.none),
                         ),
                         subtitle: Text(todo.desc),
                         value: todo.isCompleted,
