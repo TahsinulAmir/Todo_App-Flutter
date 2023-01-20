@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/models/todo.dart';
 
 class AddTodo extends StatelessWidget {
   const AddTodo({super.key});
@@ -23,6 +24,16 @@ class AddTodo extends StatelessWidget {
         MediaQuery.of(context).padding.top;
     double widthBody = MediaQuery.of(context).size.width;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          dataTodo.add(Todo(
+              id: DateTime.now().toString(),
+              title: controllerTitle.text,
+              desc: controllerDesc.text));
+          Navigator.pop(context);
+        },
+        child: Icon(Icons.add_task),
+      ),
       appBar: myAppBar,
       body: Container(
         padding: EdgeInsets.all(20),
