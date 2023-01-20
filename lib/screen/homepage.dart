@@ -65,7 +65,11 @@ class _HomepageState extends State<Homepage> {
                         ),
                         subtitle: Text("Subtitle"),
                         value: varSementara,
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                          setState(() {
+                            varSementara = value!;
+                          });
+                        },
                       );
                     },
                   )),
