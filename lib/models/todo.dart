@@ -10,3 +10,16 @@ class Todo {
       required this.desc,
       this.isCompleted = false});
 }
+
+List<Todo> dataTodo = [
+  Todo(
+    id: DateTime.now().toString(),
+    title: "Project Flutter",
+    desc: "Melanjutkan membuat aplikasi Todo App",
+  ),
+  Todo(
+    id: DateTime.now().toString(),
+    title: "Project Web Company",
+    desc: "Melanjutkan membuat website",
+  )
+];
