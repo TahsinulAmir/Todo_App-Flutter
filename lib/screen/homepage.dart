@@ -8,6 +8,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  bool varSementara = true;
   @override
   Widget build(BuildContext context) {
     AppBar myAppBar = AppBar(
@@ -33,7 +34,7 @@ class _HomepageState extends State<Homepage> {
             Container(
               padding: EdgeInsets.all(20),
               width: widthBody,
-              height: heightBody * 0.2,
+              height: heightBody * 0.15,
               child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -42,6 +43,31 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
             ),
+            Container(
+                height: heightBody * 0.85,
+                width: widthBody,
+                child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return CheckboxListTile(
+                      secondary: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        ),
+                      ),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      title: Text(
+                        "Title",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      subtitle: Text("Subtitle"),
+                      value: varSementara,
+                      onChanged: (value) {},
+                    );
+                  },
+                )),
           ],
         ));
   }
