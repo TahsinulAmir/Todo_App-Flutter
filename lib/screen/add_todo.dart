@@ -29,9 +29,14 @@ class AddTodo extends StatelessWidget {
           if (controllerTitle.text.length != 0 ||
               controllerDesc.text.length != 0) {
             dataTodo.add(Todo(
-                id: DateTime.now().toString(),
-                title: controllerTitle.text,
-                desc: controllerDesc.text));
+              id: DateTime.now().toString(),
+              title: controllerTitle.text.length == 0
+                  ? "No Title"
+                  : controllerTitle.text,
+              desc: controllerDesc.text.length == 0
+                  ? "No Description"
+                  : controllerDesc.text,
+            ));
           }
           Navigator.pop(context);
         },
