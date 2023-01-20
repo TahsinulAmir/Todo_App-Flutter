@@ -5,6 +5,8 @@ class AddTodo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController controllerTitle = TextEditingController();
+    TextEditingController controllerDesc = TextEditingController();
     AppBar myAppBar = AppBar(
       title: Text(
         "Todo App",
@@ -33,6 +35,7 @@ class AddTodo extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.grey[350]),
               child: TextField(
+                controller: controllerTitle,
                 maxLength: 20,
                 style: TextStyle(fontSize: 20),
                 decoration: InputDecoration(
@@ -50,6 +53,7 @@ class AddTodo extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.grey[350]),
               child: TextField(
+                controller: controllerDesc,
                 maxLines: 10,
                 decoration: InputDecoration(
                   hintText: "Description",
