@@ -10,7 +10,17 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
+    AppBar myAppBar = AppBar(
+      title: Text(
+        "Todo App",
+        style: TextStyle(color: Colors.black),
+      ),
+      centerTitle: true,
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+    );
     return Scaffold(
+      appBar: myAppBar,
       body: Center(
         child: Text("Todo App"),
       ),
