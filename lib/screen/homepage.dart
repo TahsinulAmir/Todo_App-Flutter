@@ -29,6 +29,18 @@ class _HomepageState extends State<Homepage> {
         MediaQuery.of(context).padding.top;
     double widthBody = MediaQuery.of(context).size.width;
 
+    //Function search
+    void searchTodo(String query) {
+      final todoFilter = dataTodo.where((todo) {
+        final todoTitle = todo.title.toLowerCase();
+        final input = query.toLowerCase();
+        return todoTitle.contains(input);
+      }).toList();
+      setState(() {
+        todos = todoFilter;
+      });
+    }
+
     return Scaffold(
         appBar: myAppBar,
         body: SingleChildScrollView(
@@ -39,6 +51,7 @@ class _HomepageState extends State<Homepage> {
                 width: widthBody,
                 height: heightBody * 0.15,
                 child: TextField(
+                  onChanged: searchTodo,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.search),
