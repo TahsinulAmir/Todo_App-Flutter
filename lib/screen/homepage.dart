@@ -59,44 +59,48 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
               ),
-              Container(
-                  height: heightBody * 0.85,
-                  width: widthBody,
-                  child: ListView.builder(
-                    itemCount: todos.length,
-                    itemBuilder: (context, index) {
-                      final todo = todos[index];
-                      return CheckboxListTile(
-                        secondary: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              todos.removeAt(index);
-                            });
-                          },
-                          icon: Icon(
-                            Icons.delete,
-                            color: Colors.red,
-                          ),
-                        ),
-                        controlAffinity: ListTileControlAffinity.leading,
-                        title: Text(
-                          todo.title,
-                          style: TextStyle(
-                              fontSize: 18,
-                              decoration: todo.isCompleted
-                                  ? TextDecoration.lineThrough
-                                  : TextDecoration.none),
-                        ),
-                        subtitle: Text(todo.desc),
-                        value: todo.isCompleted,
-                        onChanged: (value) {
-                          setState(() {
-                            todo.isCompleted = value!;
-                          });
+              todos.length != 0
+                  ? Container(
+                      height: heightBody * 0.85,
+                      width: widthBody,
+                      child: ListView.builder(
+                        itemCount: todos.length,
+                        itemBuilder: (context, index) {
+                          final todo = todos[index];
+                          return CheckboxListTile(
+                            secondary: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  todos.removeAt(index);
+                                });
+                              },
+                              icon: Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
+                            ),
+                            controlAffinity: ListTileControlAffinity.leading,
+                            title: Text(
+                              todo.title,
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  decoration: todo.isCompleted
+                                      ? TextDecoration.lineThrough
+                                      : TextDecoration.none),
+                            ),
+                            subtitle: Text(todo.desc),
+                            value: todo.isCompleted,
+                            onChanged: (value) {
+                              setState(() {
+                                todo.isCompleted = value!;
+                              });
+                            },
+                          );
                         },
-                      );
-                    },
-                  )),
+                      ))
+                  : Container(
+                      child: Text("Data Kosong"),
+                    ),
             ],
           ),
         ));
